@@ -4,7 +4,7 @@ import Button from './components/Button';
 import Checkbox from './components/Checkbox';
 
 const Home = () => {
-  const pagesArr = ['Page 1', 'Page 2', 'Page 3', 'Page 5',];
+  const pagesArr = ['Page 1', 'Page 2', 'Page 3', 'Page 4',];
   return (
     <div className='main_container'>
       <div className='content_container'>
