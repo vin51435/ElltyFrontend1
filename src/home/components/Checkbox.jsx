@@ -20,13 +20,15 @@ const Checkbox = ({ pagesArr }) => {
   return (
     <div>
       <div>
-        <label className="form-control">
+        <label className="form-control first-select">
           All pages
-          <input
-            type="checkbox"
-            checked={isChecked}
-            onChange={handleMainCheckboxChange}
-          />
+          <span className='checkbox_container'>
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleMainCheckboxChange}
+            />
+          </span>
         </label>
       </div>
       <span className='page_selection_divider' />
@@ -34,12 +36,14 @@ const Checkbox = ({ pagesArr }) => {
         <div key={index}>
           <label className="form-control">
             {option}
-            <input
-              type="checkbox"
-              name={option}
-              checked={checkedOptions[option] || false}
-              onChange={handleOptionCheckboxChange}
-            />
+            <span className='checkbox_container'>
+              <input
+                type="checkbox"
+                name={option}
+                checked={checkedOptions[option] || false}
+                onChange={handleOptionCheckboxChange}
+              />
+            </span>
           </label>
         </div>
       ))}
