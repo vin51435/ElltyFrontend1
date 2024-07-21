@@ -130,7 +130,7 @@ $breakpoints: (
               &:hover {
                 &::before {
                   opacity: 1;
-                  background-image: url('public/assets/tick2.svg');
+                  background-image: url('/assets/tick2.svg');
                 }
               }
             }
@@ -140,7 +140,7 @@ $breakpoints: (
                 height: 12px;
                 width: 17px;
                 opacity: 1;
-                background-image: url('public/assets/tick.svg'); /* Path to your SVG */
+                background-image: url('/assets/tick.svg'); /* Path to your SVG */
               }
             }
           }
@@ -150,7 +150,7 @@ $breakpoints: (
             // border: 1px solid #2469f6 !important;
             &::before {
               opacity: 1;
-              background-image: url('public/assets/tick3.svg');
+              background-image: url('/assets/tick3.svg');
             }
             &:hover {
               border: 1px solid #5087f8 !important;
@@ -161,7 +161,7 @@ $breakpoints: (
               border: 1px solid #2469f6 !important;
               &::before {
                 opacity: 1;
-                background-image: url('public/assets/tick3.svg');
+                background-image: url('/assets/tick3.svg');
               }
             }
           }
