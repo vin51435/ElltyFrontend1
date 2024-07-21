@@ -18,7 +18,7 @@ $breakpoints: (
 }
 
 .main_container {
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 18.2px;
@@ -40,8 +40,8 @@ $breakpoints: (
     max-height: 100vh;
     height: auto;
     .page_selection {
+      position: relative;
       box-shadow: 0px 8px 15px 0px #1414141f;
-      // box-shadow: 0px 0px 4px 0px #1414141a;
       border: 1px;
       border-radius: 6px;
       width: 100%;
@@ -50,6 +50,17 @@ $breakpoints: (
       height: auto;
       @include mediaMax('small') {
         width: 280px;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        z-index: -1;
+        filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.12));
       }
       .page_btn_container {
         justify-content: center;
@@ -115,26 +126,31 @@ $breakpoints: (
             opacity: 0;
           }
           &:not(:checked) {
-            animation: checkboxContainerAnimationReverse 0.3s ease-in-out
-              forwards;
-            &::before {
-              height: 12px;
-              width: 17px;
-              animation: checkboxAnimationReverse 0.3s ease-in-out forwards;
-            }
             &:active {
-              background-image: url('src/assets/tick2.svg') !important;
+              &:hover {
+                &::before {
+                  opacity: 1;
+                  background-image: url('src/assets/tick2.svg');
+                }
+              }
+            }
+            &:hover {
+              border: 1px solid #bdbdbd !important;
+              &::before {
+                height: 12px;
+                width: 17px;
+                opacity: 1;
+                background-image: url('src/assets/tick.svg'); /* Path to your SVG */
+              }
             }
           }
           &:checked {
-            animation: checkboxContainerAnimation 0.3s ease-in-out forwards;
             background-color: #2469f6;
             border: 1px solid #2469f6;
             // border: 1px solid #2469f6 !important;
             &::before {
-              height: 12px;
-              width: 17px;
-              animation: checkboxAnimation 0.3s ease-in-out forwards;
+              opacity: 1;
+              background-image: url('src/assets/tick3.svg');
             }
             &:hover {
               border: 1px solid #5087f8 !important;
@@ -143,42 +159,24 @@ $breakpoints: (
             &:active {
               background-color: #2469f6 !important;
               border: 1px solid #2469f6 !important;
-              background-image: url('src/assets/tick3.svg') !important;
-            }
-          }
-          &:hover {
-            border: 1px solid #bdbdbd !important;
-            opacity: 1;
-            &::before {
-              height: 12px;
-              width: 17px;
-              opacity: 1;
-              background-image: url('src/assets/tick.svg') !important; /* Path to your SVG */
+              &::before {
+                opacity: 1;
+                background-image: url('src/assets/tick3.svg');
+              }
             }
           }
           &:active {
-            &:hover {
-              -webkit-box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1) !important;
-              -moz-box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1) !important;
-              box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1) !important;
-              border: 1px solid rgba(205, 205, 205, 0.6);
-              &::before {
-                height: 12px;
-                width: 17px;
-                opacity: 0 !important;
-                background-image: none !important;
-              }
-            }
-            -webkit-box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1) !important;
-            -moz-box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1) !important;
+            position: relative;
             box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1) !important;
             opacity: 1 !important;
-            // background-image: url('src/assets/tick3.svg');
-            position: relative;
             background-repeat: no-repeat;
             background-position: center;
             border: 1px solid #2469f6;
             background-color: #fff !important;
+            &:hover {
+              box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1) !important;
+              border: 1px solid rgba(205, 205, 205, 0.6);
+            }
           }
         }
       }
@@ -190,51 +188,5 @@ $breakpoints: (
   display: block;
   border-bottom: 0.7px solid #cdcdcd;
   margin: 10px 15px 10px 15px;
-}
-
-@keyframes checkboxAnimation {
-  0% {
-    opacity: 1;
-    background-image: url('src/assets/tick3.svg'); /* Path to your SVG */
-  }
-  100% {
-    opacity: 1;
-    background-image: url('src/assets/tick3.svg'); /* Path to your SVG */
-  }
-}
-@keyframes checkboxAnimationReverse {
-  0% {
-    opacity: 1;
-    background-image: url('src/assets/tick.svg'); /* Path to your SVG */
-  }
-  100% {
-    opacity: 1;
-    background-image: url('src/assets/tick3.svg'); /* Path to your SVG */
-  }
-}
-
-@keyframes checkboxContainerAnimationReverse {
-  0% {
-    -webkit-box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1);
-    -moz-box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1);
-    box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1);
-  }
-  100% {
-    box-shadow: none;
-    background-color: #fff;
-    border: 1px solid rgba(205, 205, 205, 0.6);
-  }
-}
-
-@keyframes checkboxContainerAnimation {
-  0% {
-    -webkit-box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1);
-    -moz-box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1);
-    box-shadow: 0px 0px 0px 3px rgba(36, 105, 246, 0.1);
-  }
-  100% {
-    background-color: #2469f6;
-    border: 1px solid #2469f6;
-  }
 }
 
