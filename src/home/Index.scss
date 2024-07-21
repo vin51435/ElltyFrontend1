@@ -69,12 +69,15 @@ $breakpoints: (
         display: flex;
         padding: 10px 15px 10px 15px;
         margin: 10px 0;
+        & > button{
+          width:100% !important;
+        }
         .page_btn {
           font-family: 'Montserrat', sans-serif;
           font-weight: 400;
           font-size: 14px;
           line-height: 18.2px;
-          width:100%;
+          width:100% !important;
           margin: 0;
           padding: 0;
           color: #1f2128;
